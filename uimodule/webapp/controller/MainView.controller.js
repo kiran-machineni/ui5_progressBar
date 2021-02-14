@@ -43,7 +43,7 @@ sap.ui.define(
             progressDialog.close();
             progressDialog.destroy(true);
           }
-          progressIndicator.setPercentValue(i);
+          progressIndicator.setPercentValue(i*10);
           progressIndicator.setDisplayValue(i + " of " + "10");
         }.bind(this), 2000 * i);
       },
