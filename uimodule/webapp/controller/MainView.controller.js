@@ -22,12 +22,12 @@ sap.ui.define(
               oView.addDependent(progressDialog);
               progressDialog.setEscapeHandler(that.onEscapeHandle);
               that.getView().byId("progressBarBox").addItem(progressIndicator);
-              var progressDialog = that.byId("progressDialog");
+              that.progressDialog = that.byId("progressDialog");
               progressDialog.open();
             })
-            .then(function (progressDialog) {
+            .then(function () {
               for (var i = 1; i <= 10; i++) {
-                that.delay(i, progressDialog, progressIndicator);
+                that.delay(i, that.progressDialog, progressIndicator);
               }
             });
         } else {
@@ -45,7 +45,7 @@ sap.ui.define(
           }
           progressIndicator.setPercentValue(i);
           progressIndicator.setDisplayValue(i + " of " + "10");
-        }, 2000 * i);
+        }.bind(this), 2000 * i);
       },
 
       onEscapeHandle: function (oPromise) {
