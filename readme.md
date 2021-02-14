@@ -1,1 +1,1 @@
-Ui5 Progressbar control example
+UI5 Progressbar control example
